@@ -53,6 +53,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#privacy">Privacy</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -168,6 +169,29 @@ This is an example of how to list things you need to use the software and how to
 
 See the [open issues](https://github.com/alexandrosmagos/IHU_Announcement_Bot/issues) for a full list of proposed features (and known issues).
 
+
+
+<!-- PRIVACY -->
+## Privacy
+<!-- We take privacy seriously -->
+We take privacy seriously. We do not collect any personal information from you. We only collect the information that is required for the bot to function properly.
+```ts
+//User Schema:
+{
+	guild_id: Number, //Discord Guild ID
+	userId: String, //Discord User ID
+	refreshToken: String, //OAuth2 Refresh Token
+	accessToken: String, //OAuth2 Access Token
+	expiresAt: Date, //OAuth2 Token Expiration Date
+	tags: Array, //Array of tags that the user is subscribed to
+}
+```
+Check out the rest of the models in ./server/models/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -198,7 +222,8 @@ Distributed under The Unlicense License. See `LICENSE` for more information.
 ## Acknowledgments
 By Using this project, you agree to the following:
 * I am not responsible for any wrong use of the API.
-* To comply with Uni's terms, all announcements have to be in a channel that only the authenticated role can see.
+* This project is not affiliated with the university in any way. It is a personal project and is not used for commercial purposes.
+* To comply with University's terms, all announcements have to be in a channel that only the authenticated role can see.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
