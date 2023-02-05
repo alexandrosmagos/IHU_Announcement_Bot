@@ -1,0 +1,4 @@
+node_modules/
+server/public/attachments/*
+config/config.js
+commands/slash/General/tags.js
