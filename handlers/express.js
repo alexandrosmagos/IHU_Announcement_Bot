@@ -13,7 +13,7 @@ module.exports = (client) => {
 	app.set('views', './server/views');
 	app.use(bodyParser.urlencoded({ extended: true }));
 
-	const PORT = 3000;
+	const PORT = config.Port || 3000;
 
 	//Initializing routes
 	app.use(routes);

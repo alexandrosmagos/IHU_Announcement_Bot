@@ -28,9 +28,6 @@ const client = new Client({
   }
 });
 
-// Host the bot:
-// require('http').createServer((req, res) => res.end('Ready.')).listen(3000);
-
 // Getting the bot token
 const AuthenticationToken = process.env.TOKEN || config.Client.TOKEN;
 if (!AuthenticationToken) {

@@ -2,6 +2,7 @@ module.exports = {
 
   Prefix: "!",
   Status: "development",
+  Port: 3000, //Port for the website
   GuildID: "", //Guild ID for the discord server
 
   Handlers: {

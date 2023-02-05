@@ -15,18 +15,18 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/alexandrosmagos/iee-ihu-api-example">
-    <img src="logo.jpg" alt="Logo" width="512" height="512">
+  <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot">
+    <img src="imgs/logo.jpg" alt="Logo" width="512" height="512">
   </a>
 
 <h3 align="center">An announcement bot</h3>
 
   <p align="center">
-    A simple API example using International Hellenic University's API in NodeJS.
+    A Discord bot for the International Hellenic University students' Discord server.
     <br />
-    <a href="https://github.com/alexandrosmagos/iee-ihu-api-example/issues">Report Bug</a>
+    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/issues">Report Bug</a>
     ·
-    <a href="https://github.com/alexandrosmagos/iee-ihu-api-example/issues">Request Feature</a>
+    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/issues">Request Feature</a>
     ·
     <a href="https://login.iee.ihu.gr/">API Docs</a>
   </p>
@@ -76,17 +76,21 @@ The bot uses the university's API and OAuth2 for student verification to ensure 
 
 ### Built With
 
-* [![nodeJS][nodeJS.org]][nodeJS-url]
+* [![nodeJS][nodeJS.org]][nodeJS-download-url]
+* [![MongoDB][mongodb.com]][mongoDB-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ### Libraries Used
-
+<!-- body-parser, discord.js, ejs, html-to-text, mongoose, nodemon -->
 * [Express](https://www.npmjs.com/package/express) - Web Application Framework & Routes
+* [ejs](https://www.npmjs.com/package/ejs) - View engine
+* [mongoose](https://www.npmjs.com/package/mongoose) - MongoDB ODM
 * [Axios](https://www.npmjs.com/package/axios) - HTTP client used for GET & POST requests
-* [express-session](https://www.npmjs.com/package/express-session) - Creating sessions
+* [html-to-text](https://www.npmjs.com/package/html-to-text) - For parsing the body of the announcements which is in HTML
 * [chalk](https://www.npmjs.com/package/chalk) - Colors on console logs
+* [nodemon](https://www.npmjs.com/package/nodemon) - Development server
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -102,9 +106,21 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
+* MongoDB
   ```sh
-  npm install npm@latest -g
+  1. Go to https://www.mongodb.com/
+  2. Create an account.
+  3. Create a new cluster.
+  4. Create a new database.
+  5. Create a new collection.
+  6. Copy the connection string.
+  ```
+
+
+* NodeJS & NPM
+  ```sh
+  1. Head over to https://www.mongodb.com/
+  2. Select your OS, and download the latest version.
   ```
 
 * API Client ID & Secret
@@ -118,21 +134,18 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/alexandrosmagos/iee-ihu-api-example.git
+   git clone https://github.com/alexandrosmagos/IHU_Announcement_Bot.git
    ```
-2. Install NPM packages
+2. CD into the cloned directory.
    ```sh
-   npm install
+   cd IHU_Announcement_Bot
    ```
-3. Rename the '.env.example' to '.env'
-3. Enter your CLIENT_ID, CLIENT_SECRET, and change the Scopes if needed, in `.env`
-   ```js
-	PORT=3000
-	CLIENT_ID=
-	CLIENT_SECRET=
-	SCOPES=announcements,notifications,profile
-	REDIRECT_URI=http://localhost:3000/callback
+3. Install NPM packages
+   ```sh
+   npm install (or npm i)
    ```
+4. Rename the 'config_sample.js' to 'config.js' from the config folder.
+5. Enter all the required parameters from the Prerequisites in the config file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -143,17 +156,17 @@ This is an example of how to list things you need to use the software and how to
 1. Run the app
    ```sh
    npm run dev - To run it with nodemon
-   node app - To run it normally
+   node index - To run it normally
    ```
 2. Open your browser to localhost:3000, or a diffrent port if changed.
-3. Observe console going through the steps, while authentication.
+3. Observe console for any errors.
 4. If everything goes correctly, it should be like this:
 <br>
-<img src="img/usage.jpg" alt="Usage" >
+<img src="imgs/console.jpg" alt="Usage" >
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-See the [open issues](https://github.com/alexandrosmagos/iee-ihu-api-example/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/alexandrosmagos/IHU_Announcement_Bot/issues) for a full list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -185,6 +198,7 @@ Distributed under The Unlicense License. See `LICENSE` for more information.
 ## Acknowledgments
 By Using this project, you agree to the following:
 * I am not responsible for any wrong use of the API.
+* To comply with Uni's terms, all announcements have to be in a channel that only the authenticated role can see.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -192,18 +206,21 @@ By Using this project, you agree to the following:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/alexandrosmagos/iee-ihu-api-example.svg?style=for-the-badge
-[contributors-url]: https://github.com/alexandrosmagos/iee-ihu-api-example/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/alexandrosmagos/iee-ihu-api-example.svg?style=for-the-badge
-[forks-url]: https://github.com/alexandrosmagos/iee-ihu-api-example/network/members
-[stars-shield]: https://img.shields.io/github/stars/alexandrosmagos/iee-ihu-api-example.svg?style=for-the-badge
-[stars-url]: https://github.com/alexandrosmagos/iee-ihu-api-example/stargazers
-[issues-shield]: https://img.shields.io/github/issues/alexandrosmagos/iee-ihu-api-example.svg?style=for-the-badge
-[issues-url]: https://github.com/alexandrosmagos/iee-ihu-api-example/issues
-[license-shield]: https://img.shields.io/github/license/alexandrosmagos/iee-ihu-api-example.svg?style=for-the-badge
-[license-url]: https://github.com/alexandrosmagos/iee-ihu-api-example/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/alexandrosmagos/IHU_Announcement_Bot.svg?style=for-the-badge
+[contributors-url]: https://github.com/alexandrosmagos/IHU_Announcement_Bot/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/alexandrosmagos/IHU_Announcement_Bot.svg?style=for-the-badge
+[forks-url]: https://github.com/alexandrosmagos/IHU_Announcement_Bot/network/members
+[stars-shield]: https://img.shields.io/github/stars/alexandrosmagos/IHU_Announcement_Bot.svg?style=for-the-badge
+[stars-url]: https://github.com/alexandrosmagos/IHU_Announcement_Bot/stargazers
+[issues-shield]: https://img.shields.io/github/issues/alexandrosmagos/IHU_Announcement_Bot.svg?style=for-the-badge
+[issues-url]: https://github.com/alexandrosmagos/IHU_Announcement_Bot/issues
+[license-shield]: https://img.shields.io/github/license/alexandrosmagos/IHU_Announcement_Bot.svg?style=for-the-badge
+[license-url]: https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/alexandrosmagos/
 [product-screenshot]: images/screenshot.png
+[mongodb.com]: https://img.shields.io/badge/mongodb-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white
 [nodeJS.org]: https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white
 [nodeJS-url]: https://nodejs.org/
+[nodeJS-download-url]: https://nodejs.org/en/download/
+[mongoDB-url]: https://www.mongodb.com/
