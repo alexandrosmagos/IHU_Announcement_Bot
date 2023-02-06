@@ -4,6 +4,7 @@ const User = require("../../../server/models/user");
 const config = require("../../../config/config.js");
 const Tags = require("../../../server/models/tag");
 const utils = require("../../../server/utils.js");
+const chalk = require('chalk');
 
 module.exports = {
 	name: "subscribe",
@@ -11,14 +12,14 @@ module.exports = {
 	type: 1,
 	options: [
 		{
-			name: "semester",
-			description: "The semester that the subject is in.",
+			name: "εξάμηνο",
+			description: "Το εξάμηνο στο οποίο είναι το μάθημα",
 			type: 4,
 			// required: true,
 		},
 		{
-			name: "subject",
-			description: "The subject to be notified about.",
+			name: "μάθημα",
+			description: "Το μάθημα που θέλεις να εγγραφείς",
 			type: 3,
 			// required: true,
 			autocomplete: true,
@@ -32,7 +33,7 @@ module.exports = {
 		const focusedValue = interaction.options.getFocused();
 
 		//for string option name
-		var semester = interaction.options.getInteger("semester");
+		var semester = interaction.options.getInteger("εξάμηνο");
 
 		//If semester value is between 1 and 9
 		if (semester > 0 && semester < 10) {
@@ -68,7 +69,7 @@ module.exports = {
 	},
 
 	run: async (client, interaction, config, db) => {
-		console.log(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`);
+		console.log(chalk.yellow(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`));
 		
 		const userID = interaction.user.id;
 		const guild_id = config.GuildID;
@@ -87,7 +88,7 @@ module.exports = {
 		const userTags = await utils.getUserTags(accessToken);
 
 		//If no arguments provided
-		if (interaction.options.getInteger("semester") == null || interaction.options.getString("subject") == null) {
+		if (interaction.options.getInteger("εξάμηνο") == null || interaction.options.getString("μάθημα") == null) {
 			//Create an embed asking to select semester number with buttons
 			const embed = new EmbedBuilder()
 				.setTitle("Επιλογή Εξαμήνου")
@@ -224,8 +225,8 @@ module.exports = {
 			});
 		} else {
 			//If arguments provided
-			const semester = interaction.options.getInteger("semester");
-			const subject = interaction.options.getString("subject");
+			const semester = interaction.options.getInteger("εξάμηνο");
+			const subject = interaction.options.getString("μάθημα");
 
 			const user = await User.findOne({ userId: interaction.user.id }).exec();
 			const tag = await Tags.findOne({ title: subject, parent_id: semester + 1 }).exec();
@@ -237,7 +238,7 @@ module.exports = {
 				
 				const embed = new EmbedBuilder()
 				.setTitle("Εγγραφή στις ειδοποιήσεις")
-				.setDescription(`Δεν θα λαμβάνεις ειδοποιήσεις για το μάθημα **${subject}** του **${semester}** εξαμήνου.`)
+				.setDescription(`Δεν θα λαμβάνεις ειδοποιήσεις για το μάθημα **${subject}** του **${semester}ου** εξαμήνου.`)
 				.setColor("Red");
 				return await interaction.reply({ embeds: [embed], components: [], ephemeral: true });
 			} else {
@@ -246,7 +247,7 @@ module.exports = {
 				
 				const embed = new EmbedBuilder()
 				.setTitle("Εγγραφή στις ειδοποιήσεις")
-				.setDescription(`Θα λαμβάνεις ειδοποιήσεις για το μάθημα **${subject}** του **${semester}** εξαμήνου.`)
+				.setDescription(`Θα λαμβάνεις ειδοποιήσεις για το μάθημα **${subject}** του **${semester}ου** εξαμήνου.`)
 				.setColor("Green");
 				return await interaction.reply({ embeds: [embed], components: [], ephemeral: true });
 			}

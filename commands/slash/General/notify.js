@@ -3,6 +3,7 @@ const User = require('../../../server/models/user');
 const Tags = require('../../../server/models/tag');
 const config = require('../../../config/config.js');
 const utils = require('../../../server/utils.js');
+const chalk = require('chalk');
 
 module.exports = {
     name: "notify",
@@ -13,7 +14,7 @@ module.exports = {
         DEFAULT_MEMBER_PERMISSIONS: "SendMessages"
     },
     run: async (client, interaction, config, guild) => {
-		console.log(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`);
+		console.log(chalk.yellow(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`));
 
         //Get user's ID and DM user
 		const userID = interaction.user.id; 

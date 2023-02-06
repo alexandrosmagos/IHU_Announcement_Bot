@@ -53,6 +53,7 @@ router.get('/callback', async (req, res) => {
 			// .setTimestamp();
 
 		const user = await client.users.fetch(userID);
+		console.log(`User ${user.tag} has been authenticated`);
 		user.send({ embeds: [embed] });
 
 		// Once the tokens have been retrieved, we are done and ready to make queries

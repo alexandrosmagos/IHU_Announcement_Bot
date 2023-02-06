@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 const User = require('../../../server/models/user');
 const config = require('../../../config/config.js');
+const chalk = require('chalk');
 
 module.exports = {
     name: "auth",
@@ -11,7 +12,7 @@ module.exports = {
         DEFAULT_MEMBER_PERMISSIONS: "SendMessages"
     },
     run: async (client, interaction, config, guild) => {
-		console.log(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`);
+		console.log(chalk.yellow(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`));
 
 		if (!interaction.guild) {
 			return interaction.reply({ content: `Αυτή η εντολή δεν είναι διαθέσιμη σε προσωπικά μηνύματα.`, ephemeral: true });

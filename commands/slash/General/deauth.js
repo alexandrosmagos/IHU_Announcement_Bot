@@ -1,6 +1,7 @@
 const { EmbedBuilder } = require("discord.js");
 const User = require('../../../server/models/user');
 const config = require('../../../config/config.js');
+const chalk = require('chalk');
 
 module.exports = {
     name: "deauth",
@@ -11,13 +12,14 @@ module.exports = {
         DEFAULT_MEMBER_PERMISSIONS: "SendMessages"
     },
     run: async (client, interaction, config, guild) => {
-		console.log(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`);
+		console.log(chalk.yellow(`User ${interaction.user.username}#${interaction.user.discriminator} used the ${interaction.commandName} command`));
 
 		const userID = interaction.user.id; 
 
 		//Check if user exists in DB
 		await User.findOne({ userId: userID }).then(async (user) => {
 			if (user) {
+				console.log(chalk.bgYellow(`User ${userID} is deauthenticated`));
 				//User exists in DB
 				await user.deleteOne();
 

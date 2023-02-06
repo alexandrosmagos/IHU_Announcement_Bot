@@ -75,5 +75,5 @@ module.exports = (client) => {
 				return await client.channels.cache.get(config.announcements.send_all_channelID).send( ann ).catch(chalk.red(console.error));
 			}
 		}
-	}, 300000);
+	}, 210000);
 };
