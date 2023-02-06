@@ -20,6 +20,12 @@ module.exports = {
 			if (user) {
 				//User exists in DB
 				await user.deleteOne();
+
+				// remove authenticated role from user
+				const role = interaction.guild.roles.cache.find(role => role.id === config.announcements.auth_role);
+
+				await interaction.member.roles.remove(role);
+
 				const embed = new EmbedBuilder()
 					.setTitle("Goodbye 😥")
 					.setDescription(`Ο λογαριασμός σας αφαιρέθηκε από το σύστημα. Αν θέλετε να συνδεθείτε ξανά, πατήστε το /auth`)
