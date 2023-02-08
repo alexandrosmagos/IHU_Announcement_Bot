@@ -372,3 +372,26 @@ exports.subscribe = async (accessToken, tags) => {
 		return e;
 	}
 }
+
+exports.saveBase64Image = async (base64Image, annID, filename) => {
+    try {
+        const filePath = `./server/public/attachments/${annID}`;
+		if (!fs.existsSync(filePath)) {
+			fs.mkdirSync(filePath);
+		}
+
+        const buffer = Buffer.from(base64Image, 'base64');
+		fs.writeFile(`${filePath}/${filename}`, buffer, (err => {
+				if (err) {
+					return err;
+				}
+			}))
+        console.log(chalk.green(`  > Image saved to ${filePath}`));
+        return;
+    
+    } catch (e) {
+        console.error(chalk.red('  > Unable to save image'));
+        console.error(e);
+        return e;
+    }
+}
