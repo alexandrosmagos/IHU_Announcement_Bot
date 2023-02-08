@@ -38,18 +38,20 @@ module.exports = {
 					.setFooter({ text: "Για να αφαιρέσεις μάθημα, πάτησε το αντίστοιχο κουμπάκι." });
 
 				const rows = [];
-				for (let i = 0; i < Math.ceil(tags.length / 5); i++) {
+
+				for (let i = 0; i < Math.min(Math.ceil(tags.length / 5), 5); i++) {
 					rows.push(new ActionRowBuilder());
-				}
+                }
 
 				tags.forEach((tag, i) => {
+					if (i >= 25) return;
 					rows[Math.floor(i / 5)].addComponents(
-						new ButtonBuilder()
-							.setLabel(tag.title)
-							.setCustomId(`removeTag:${tag._id}`)
-							.setStyle("Primary")
-					);
-				});
+                        new ButtonBuilder()
+                            .setLabel(tag.title)
+                            .setCustomId(`removeTag:${tag._id}`)
+                            .setStyle("Primary")
+                    );
+                });
 				
 
 				// Send the embed and the buttons
