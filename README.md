@@ -31,9 +31,9 @@
     <a href="https://login.iee.ihu.gr/">API Docs</a>
   </p>
   <p align="center">
-    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/COMMANDS.md">Command Usage (English)</a>
+    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/COMMANDS.MD">Command Usage (English)</a>
     -
-    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/COMMANDS_el.md">Χρήση εντολών (Greek)</a>
+    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/COMMANDS_el.MD">Χρήση εντολών (Greek)</a>
   </p>
 </div>
 
