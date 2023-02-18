@@ -170,6 +170,7 @@ This is an example of how to list things you need to use the software and how to
 4. If everything goes correctly, it should be like this:
 <br>
 <img src="imgs/console.jpg" alt="Usage" >
+
 5. In order for the next step to work, the bot needs to have at least one authenticated user. So start by authenticating yourself, by running the auth command:
    ```sh
    /auth
