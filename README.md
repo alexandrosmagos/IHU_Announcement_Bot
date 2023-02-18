@@ -30,6 +30,11 @@
     ·
     <a href="https://login.iee.ihu.gr/">API Docs</a>
   </p>
+  <p align="center">
+    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/COMMANDS.md">Command Usage (English)</a>
+    -
+    <a href="https://github.com/alexandrosmagos/IHU_Announcement_Bot/blob/master/COMMANDS_el.md">Χρήση εντολών (Greek)</a>
+  </p>
 </div>
 
 
@@ -164,6 +169,14 @@ This is an example of how to list things you need to use the software and how to
 4. If everything goes correctly, it should be like this:
 <br>
 <img src="imgs/console.jpg" alt="Usage" >
+5. In order for the next step to work, the bot needs to have at least one authenticated user. So start by authenticating yourself, by running the auth command:
+   ```sh
+   /auth
+   ```
+6. For the notify / subscribe commands, the bot needs to first download the server's tags. You can do that by running the following command:
+   ```sh
+   !updateTags
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
