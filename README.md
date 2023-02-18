@@ -74,7 +74,8 @@ This Discord Bot is designed to help students stay up-to-date with the latest an
 It periodically checks for new announcements and posts them on the university's students' Discord server. 
 Additionally, students can register for announcements for specific subjects and receive notifications directly through the bot. 
 The bot uses the university's API and OAuth2 for student verification to ensure secure and personalized experiences.
-<!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description` -->
+<br>
+Want to create your own idea that works with the api of the uni? Use <a href="https://github.com/alexandrosmagos/iee-ihu-api-example">this</a> to get a head start!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
